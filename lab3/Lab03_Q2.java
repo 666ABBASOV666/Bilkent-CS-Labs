@@ -42,4 +42,4 @@ public class Lab03_Q2 {
 }
 
 
-//Elkhan Abbasov
+//Graff75
