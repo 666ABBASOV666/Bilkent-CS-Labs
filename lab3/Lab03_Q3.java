@@ -6,13 +6,9 @@ public class Lab03_Q3 {
 
         Scanner sc = new Scanner(System.in);
         sc.useLocale(Locale.ENGLISH);
-        String pin, choice, newBank, newPin;
-        int newPin1;
+        String pin, choice, newBank, newPin1;
         double initial = 1000.0;
         double withdraw, finalWithdraw;
-        
-
-        System.out.print("Enter your PIN: ");
         pin = sc.nextLine();
 
         if(pin.equals ("1234")){
@@ -46,14 +42,17 @@ public class Lab03_Q3 {
                 //option 3 (password change)
                 else if (choice.equals ("3")){
                     System.out.print("Enter your new pin: ");
-                    newPin = sc.next();
-                    newPin1 = Integer.parseInt(newPin);
-                    if (newPin.length() > 4){
+                    newPin1 = sc.next();
+                    //newPin1 = Integer.parseInt(newPin);
+                   if(!newPin1.matches("[0-9]+")) {
+                       System.out.println("Only Numbers!");
+                    }
+                    else if (newPin1.length() > 4){
                         System.out.println("Error. Characters limit more than 4!");
                     } 
-                    else{
-                    char ch1 = newPin.charAt(0);
-                    char ch2 = newPin.charAt(3);
+                    else {
+                    char ch1 = newPin1.charAt(0);
+                    char ch2 = newPin1.charAt(3);
                     System.out.println("Your new PIN is changed to " + ch1 + "**" + ch2);
                     }
                 }
