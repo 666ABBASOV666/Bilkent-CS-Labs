@@ -7,6 +7,7 @@ public class Lab03_Q3 {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(Locale.ENGLISH);
         String pin, choice, newBank, newPin;
+        int newPin1;
         double initial = 1000.0;
         double withdraw, finalWithdraw;
         
@@ -46,9 +47,15 @@ public class Lab03_Q3 {
                 else if (choice.equals ("3")){
                     System.out.print("Enter your new pin: ");
                     newPin = sc.next();
+                    newPin1 = Integer.parseInt(newPin);
+                    if (newPin.length() > 4){
+                        System.out.println("Error. Characters limit more than 4!");
+                    } 
+                    else{
                     char ch1 = newPin.charAt(0);
                     char ch2 = newPin.charAt(3);
                     System.out.println("Your new PIN is changed to " + ch1 + "**" + ch2);
+                    }
                 }
             }    
          
@@ -60,4 +67,4 @@ public class Lab03_Q3 {
 }
     
 
-//Graff75
+//graff75
