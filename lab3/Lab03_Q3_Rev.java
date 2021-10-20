@@ -20,7 +20,6 @@ public class Lab03_Q3_Rev {
             System.out.print("Select an operation: ");
             choice = sc.nextLine();
             
-
             //option 0 (Request a card)
             if( choice.equals ("1")){
                 
@@ -33,6 +32,7 @@ public class Lab03_Q3_Rev {
                     System.out.println("Your credit card request has been successfully received! Bye");
                 }
             }
+
             //option 1 (withdraw)
             if(choice.equals ("2")){
                 System.out.print("Enter the amount to withdraw: ");
@@ -40,6 +40,7 @@ public class Lab03_Q3_Rev {
                 finalWithdraw = initial - withdraw;
                 System.out.println("Your new balance is " + finalWithdraw + " TRY. Bye!");
             }
+
             //option2 (new bank account)
             else if(choice.equals ("3")){
             
@@ -70,14 +71,19 @@ public class Lab03_Q3_Rev {
                     System.out.println("Your selection is invalid! Bye!");
                 }
             }    
-
                 //option 3 (password change)
                 else if (choice.equals ("4")){
                     System.out.print("Enter your new pin: ");
                     newPin = sc.next();
+                    newPin1 = Integer.parseInt(newPin);
+                    if (newPin.length() > 4){
+                        System.out.println("Error. Characters limit more than 4!");
+                    } 
+                    else{
                     char ch1 = newPin.charAt(0);
                     char ch2 = newPin.charAt(3);
                     System.out.println("Your new PIN is changed to " + ch1 + "**" + ch2);
+                    }
                 }
             }    
          
@@ -88,5 +94,4 @@ public class Lab03_Q3_Rev {
     }
 }
     
-
-//Graff75
+//graff75
