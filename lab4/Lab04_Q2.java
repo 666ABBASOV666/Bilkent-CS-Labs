@@ -15,11 +15,11 @@ public class Lab04_Q2 {
         i++;
         j--;
         if (str.charAt(i) == str.charAt(j)){
-            System.out.println("It is polindrome");
+            System.out.println("It is palindrome");
             break;
         }
         else{
-            System.out.println("It is not polindrome");
+            System.out.println("It is not palindrome");
             break;
         }
     }
