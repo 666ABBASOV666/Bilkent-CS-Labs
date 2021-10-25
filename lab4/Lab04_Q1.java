@@ -22,3 +22,6 @@ public class Lab04_Q1 {public static void main(String[] args) {
     System.out.println("Fib (" + num + ") is " + sumOfTwo);
 }
 }
+
+
+/graff75
