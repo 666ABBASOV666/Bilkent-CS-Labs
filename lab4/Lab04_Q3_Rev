@@ -1,0 +1,53 @@
+import java.util.Scanner;
+public class Lab04_Q3_revısıon 
+{   
+    public static void main(String[] args) 
+    {
+        Scanner in = new Scanner(System.in);
+        
+
+        int max = 0 ;
+        int min = max;
+        double sum  = 0;
+        
+        int j = 0;
+        int i = 1;
+        while(i > j)
+        {
+            System.out.println("Please input a positive integer: ");
+            int input = in.nextInt();
+            
+            if (input > 0) 
+            {            
+                sum = sum + input;
+        
+                if(i==1)
+                {
+                    min = input;
+                }
+
+                if( input > max )
+                {
+                    max = input;
+                }
+                else if (input < min )
+                {
+                    min = input;
+                }
+                
+                i++;
+            }
+            else
+            {
+                j= Integer.MAX_VALUE;
+            }
+        }
+
+        System.out.println("Min:" + min );
+        System.out.println("Max: " + max );
+        System.out.println("Average: " + sum/i );
+        in.close();        
+    }
+    
+}
+
