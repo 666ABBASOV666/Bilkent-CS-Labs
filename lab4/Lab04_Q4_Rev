@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class Lab04_Q4_revision 
+{
+    public static void main(String[] args) 
+    {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Enter number of lines: ");
+        int n = in.nextInt();
+
+        int i = 1;
+        while( i<=n )
+        {
+            int rev = (2*n)-1;
+            int rev01 = (2*i)-1;
+            int j = 1;
+            String str = "";
+
+            while (rev01 < rev) 
+            {
+                System.out.print(" ");
+                rev--;  
+            }
+            while (j <= rev01) 
+            {
+                str = str + "*";
+                rev01--;  
+            }
+            
+            System.out.print(str);  
+            System.out.println(" ");
+            i++;
+        }
+        in.close();
+    }  
+}
