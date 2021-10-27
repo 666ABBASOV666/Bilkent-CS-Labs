@@ -1,53 +1,54 @@
+import java.util.Locale;
 import java.util.Scanner;
-public class Lab04_Q3_revısıon 
-{   
-    public static void main(String[] args) 
-    {
-        Scanner in = new Scanner(System.in);
-        
+import java.lang.Math;
+public class Lab04_Q3_REV{ 
+    public static void main(String [] args) {
+        Scanner sc = new Scanner(System.in);
 
         int max = 0 ;
-        int min = max;
+        int min = 0;
         double sum  = 0;
+        int input = 0;
+        int my = 0;
+        int old = 0;
+        int i = 0;
+
+        System.out.print("Please input n: ");
+        my = sc.nextInt();
+        min = my;
         
-        int j = 0;
-        int i = 1;
-        while(i > j)
+        while(my != input)
         {
-            System.out.println("Please input a positive integer: ");
-            int input = in.nextInt();
+            System.out.print("Please input a positive integer: ");
+            input = sc.nextInt();
             
             if (input > 0) 
             {            
-                sum = sum + input;
-        
-                if(i==1)
-                {
-                    min = input;
+                if(input == 1){
+                    min = 1;
                 }
 
-                if( input > max )
-                {
-                    max = input;
-                }
-                else if (input < min )
-                {
-                    min = input;
+                if( input > max){
+                max = input;
                 }
                 
-                i++;
-            }
-            else
-            {
-                j= Integer.MAX_VALUE;
-            }
-        }
+                if (input < min) {
+                min = input;
+                }
 
+                if(my != input){
+                i++;
+                sum = sum + input;
+                }
+        }
+    }
         System.out.println("Min:" + min );
         System.out.println("Max: " + max );
         System.out.println("Average: " + sum/i );
-        in.close();        
+        sc.close();
     }
+}        
     
-}
-
+//graff75
+ 
+  
