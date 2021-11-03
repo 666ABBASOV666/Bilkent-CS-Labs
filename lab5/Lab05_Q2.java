@@ -130,7 +130,7 @@ public class Lab05_Q2 {
                 bool2 = false;
             }
 
-        } while (bool2 == true);
+        } while (bool2 == true && playerHand <= 21);
 
     }
 }
