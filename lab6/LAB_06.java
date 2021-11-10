@@ -115,19 +115,36 @@ public class LAB_06 {
                 return false;
     }
 
+    ///////////////////////Narcissistic Number//////////////////////
+
+    static boolean isTwist (int a){
+        int x = 0;
+        int reverse = 0;
+        int z = a;
+        while (z > 0){
+            x = z % 10;
+            reverse = reverse * 10 + x;
+            z = z / 10;
+        }
+        if(isPrime(reverse) == isPrime(a)){
+            return true;
+        }
+        return false;
+    }
+
     public static void main(String [] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number to be examined: ");
         int number = sc.nextInt();
 
        //////////////////// Fibbonaci ///////////////////////
-        if (isFibbonaci(number) == true){
+       if (isFibbonaci(number) == true){
 
-            System.out.println((number) + " is Fibbonaci number.");
-        }
+        System.out.println((number) + " is Fibbonaci number.");
+    }
 
-        else{
-            System.out.println((number) + " is not Fibbonnaci number.");
+    else{
+        System.out.println((number) + " is not Fibbonnaci number.");
         }
         
         //////////////////////////Harshad//////////////////////
@@ -160,5 +177,19 @@ public class LAB_06 {
         else{
             System.out.println((number) + " is not Narcissistic.");
         }
+    
+
+        ///////////////////////Twist Number//////////////////////
+
+        if (isTwist(number) == true){
+
+            System.out.println((number) + " is a Twisted number.");
+        }
+
+        else{
+            
+            System.out.println((number) + " is not a Twisted number.");
+        }
     }
 }
+
