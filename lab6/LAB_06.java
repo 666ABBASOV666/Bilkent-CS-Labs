@@ -1,4 +1,3 @@
-import java.util.IllegalFormatFlagsException;
 import java.util.Scanner;
 import java.math;
 public class LAB_06 {
@@ -81,37 +80,39 @@ public class LAB_06 {
         while(secondNumber > 0){
 
             digits = secondNumber % 10;
-            sum = sum + digits ;
+           
+            sum = sum + 1 ;
             secondNumber = secondNumber / 10; // removes the last digit
-          }
+          } 
           return sum;
      }
 
      static int power(int a, int b){
         int power = 1;
-        for(int i = 0; i < b; b++){
-            
-            power = power * a; 
+        int cem = 1;
+        int newCem = 1;
+        for(int i = 0; i < b; i++){
+            cem = power * a;
+            newCem = newCem * cem; 
         }
-        return power;
-    
+        return newCem;  
     }
 
     public static boolean isNarcissistic(int a){
         int newResult = 0;
-        for(int i = 1; i <= countDigits(a); i++){
-            int digits = a % 10;
-            int result = digits * power(a,i);
+        int digits = countDigits(a);
+        int ourNum = a;
+        for(int i = 0; i <= digits; i++){
+            int digit = ourNum % 10;
+            int result = power(digit,digits);
             newResult += result;
-            digits = digits / 10;
+            ourNum = ourNum / 10;
         }
-        if(newResult = a){
-            return false;
-        }
-        return true;
+            if(newResult == a){
+                    return true;
+                }   
+                return false;
     }
-
-
     public static void main(String [] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number to be examined: ");
@@ -148,18 +149,14 @@ public class LAB_06 {
         }
 
         ///////////////////////Narcissistic Number//////////////////////
+
         if (isNarcissistic(number) == true){
 
-            System.out.println((number) + " is Narcissistic number.");
+            System.out.println((number) + " is Narcissistic.");
         }
 
         else{
-            System.out.println((number) + " is not Narcissistic number.");
+            System.out.println((number) + " is not Narcissistic.");
         }
-        
-
-
-
-
     }
 }
