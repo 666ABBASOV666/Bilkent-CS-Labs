@@ -3,17 +3,19 @@ import java.math;
 public class LAB_06 {
     
     //////////////////// Fibbonaci ///////////////////////
-    public static boolean isPerfectSquare (int a){
+    public static boolean isPerfectSquare (int a)
+    {
 
-        if (a >= 0){
-        int sr = (int) Math.sqrt(a);
-        return ((sr * sr) == a);
+        if (a >= 0)
+        {
+            int sr = (int) Math.sqrt(a);
+            return ((sr * sr) == a);
+        }
+        return false;
     }
-    return false;
-}
 
-    public static boolean isFibbonaci (int a){
-
+    public static boolean isFibbonaci (int a)
+    {
         int b = 5 * a * a + 4;
         int c = 5 * a * a - 4;
         if (isPerfectSquare(b) || isPerfectSquare(c))
@@ -25,22 +27,23 @@ public class LAB_06 {
 
     //////////////////// Harshad ///////////////////////
 
-    public static int sumOfDigits (int a){
+    public static int sumOfDigits (int a)
+    {
         int number = a;
         int sum = 0;
         int digits = 0;
         int secondNumber = number;
-        while(secondNumber > 0){
-
+        while(secondNumber > 0)
+        {
             digits = secondNumber % 10;
-            sum = sum + digits ;
+            sum = sum + digits;
             secondNumber = secondNumber / 10; // removes the last digit
           }
           return sum;
     }
 
-    public static boolean isHarshad (int a){
-
+    public static boolean isHarshad (int a)
+    {
         while(a % sumOfDigits(a) == 0)
         {
             return true;
@@ -53,141 +56,147 @@ public class LAB_06 {
      static boolean isPrime(int a)
      {   
          if (a <= 1) // equal to 1
-             return false;
+            return false;
         
          else if (a == 2) //number is 2 = true
-             return true;
+            return true;
   
          else if (a % 2 == 0)
-             return false;
+            return false;
   
          for (int i = 3; i <= Math.sqrt(a); i += 2)
          {
              if (a % i == 0)
-                 return false;
+                return false;
          }
          return true;
      }
 
      ////////////////////////Narciss Number//////////////////////
 
-     static int countDigits(int a){
+     static int countDigits(int a)
+     {
         int number = a;
         int sum = 0;
         int digits = 0;
         int secondNumber = number;
-        while(secondNumber > 0){
-
+        while(secondNumber > 0)
+        {
             digits = secondNumber % 10;
-           
             sum = sum + 1 ;
             secondNumber = secondNumber / 10; // removes the last digit
-          } 
-          return sum;
+        } 
+        return sum;
      }
 
-     static int power(int a, int b){
-        int power = 1;
-        int cem = 1;
+     static int power(int a, int b)
+     {
         int newCem = 1;
-        for(int i = 0; i < b; i++){
-            cem = power * a;
-            newCem = newCem * cem;
-            
+        for(int i = 0; i < b; i++)
+        {
+            newCem = newCem * a;
         }
         return newCem;
-    
     }
 
-    public static boolean isNarcissistic(int a){
+    public static boolean isNarcissistic(int a)
+    {
         int newResult = 0;
         int digits = countDigits(a);
         int ourNum = a;
-        for(int i = 0; i <= digits; i++){
+        for(int i = 0; i <= digits; i++)
+        {
             int digit = ourNum % 10;
             int result = power(digit,digits);
             newResult += result;
             ourNum = ourNum / 10;
         }
-            if(newResult == a){
-                    return true;
-                }   
-                return false;
+        if(newResult == a)
+        {
+            return true;
+        }   
+        return false;
     }
 
-    ///////////////////////Narcissistic Number//////////////////////
+    ///////////////////////Twist Number//////////////////////
 
-    static boolean isTwist (int a){
+    static boolean isTwist (int a)
+    {
         int x = 0;
         int reverse = 0;
         int z = a;
-        while (z > 0){
+        while (z > 0)
+        {
             x = z % 10;
             reverse = reverse * 10 + x;
             z = z / 10;
         }
-        if(isPrime(reverse) == isPrime(a)){
+        if(isPrime(reverse) == true && isPrime(a) == true)
+        {
             return true;
         }
         return false;
     }
-
-    public static void main(String [] args) {
+    public static void main(String [] args)
+    {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number to be examined: ");
         int number = sc.nextInt();
 
        //////////////////// Fibbonaci ///////////////////////
-       if (isFibbonaci(number) == true){
-
-        System.out.println((number) + " is Fibbonaci number.");
-    }
-
-    else{
-        System.out.println((number) + " is not Fibbonnaci number.");
-        }
-        
-        //////////////////////////Harshad//////////////////////
-        if (isHarshad(number) == true){
-
-            System.out.println((number) + " is Harshad number.");
+       if (isFibbonaci(number) == true)
+       {
+            System.out.println((number) + " is Fibbonaci number.");
         }
 
         else{
+            System.out.println((number) + " is not Fibbonnaci number.");
+        }
+        
+        //////////////////////////Harshad//////////////////////
+        if (isHarshad(number) == true)
+        {
+            System.out.println((number) + " is Harshad number.");
+        }
+
+        else
+        {
             System.out.println((number) + " is not Harshad number.");
         }
 
          ////////////////////////Prime Number//////////////////////
-         if (isPrime(number) == true){
-
+         
+         if (isPrime(number) == true)
+         {
             System.out.println((number) + " is Prime number.");
         }
 
-        else{
+        else
+        {
             System.out.println((number) + " is not Prime number.");
         }
 
         ///////////////////////Narcissistic Number//////////////////////
 
-        if (isNarcissistic(number) == true){
-
+        if (isNarcissistic(number) == true)
+        {
             System.out.println((number) + " is Narcissistic.");
         }
 
-        else{
+        else
+        {
             System.out.println((number) + " is not Narcissistic.");
         }
     
-
         ///////////////////////Twist Number//////////////////////
 
-        if (isTwist(number) == true){
-
+        if (isTwist(number) == true)
+        {
             System.out.println((number) + " is a Twisted number.");
         }
 
-        else{
-            
+        else
+        {
             System.out.println((number) + " is not a Twisted number.");
         }
     }
