@@ -35,9 +35,7 @@ public class LAB_06 {
             digits = secondNumber % 10;
             sum = sum + digits ;
             secondNumber = secondNumber / 10; // removes the last digit
-
           }
-
           return sum;
     }
 
@@ -72,6 +70,7 @@ public class LAB_06 {
      }
 
      ////////////////////////Narciss Number//////////////////////
+
      static int countDigits(int a){
         int number = a;
         int sum = 0;
@@ -93,9 +92,11 @@ public class LAB_06 {
         int newCem = 1;
         for(int i = 0; i < b; i++){
             cem = power * a;
-            newCem = newCem * cem; 
+            newCem = newCem * cem;
+            
         }
-        return newCem;  
+        return newCem;
+    
     }
 
     public static boolean isNarcissistic(int a){
@@ -113,6 +114,7 @@ public class LAB_06 {
                 }   
                 return false;
     }
+
     public static void main(String [] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number to be examined: ");
