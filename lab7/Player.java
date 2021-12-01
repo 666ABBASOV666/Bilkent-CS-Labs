@@ -15,13 +15,9 @@ public class Player {
     //Part2
     public int recordGame;
     public int pointsPerGame;
-    //public int pointsPerGameAverage = 0;
     public int assistsPerGame;
-    //public int assistsPerGameAverage;
     public int reboundsPerGame;
-    //public int reboundsPerGameAverage;
     public int turnoversPerGame;
-    //public int turnoversPerGameAverage;
     public static double game = 1;
     public double games = 0;
 
