@@ -4,7 +4,7 @@ public class Player {
     public static int allCount = 0;
     public int id;
     public int rosterNumber;
-    public String name;
+    private String name;
     public String position;
     public String team;
     public String transfer;
@@ -15,16 +15,15 @@ public class Player {
     //Part2
     public int recordGame;
     public int pointsPerGame;
-    public int pointsPerGameAverage = 0;
+    //public int pointsPerGameAverage = 0;
     public int assistsPerGame;
-    public int assistsPerGameAverage;
+    //public int assistsPerGameAverage;
     public int reboundsPerGame;
-    public int reboundsPerGameAverage;
+    //public int reboundsPerGameAverage;
     public int turnoversPerGame;
-    public int turnoversPerGameAverage;
+    //public int turnoversPerGameAverage;
     public static double game = 1;
     public double games = 0;
-    public boolean isMoreE;
 
     public Player (String a, String b, String c, int d) {
         this.name = a;
@@ -75,7 +74,7 @@ public class Player {
     }
 
     public void retire () {
-        isActive = false;
+        this.isActive = false;
         count--; 
     }
 
@@ -91,58 +90,52 @@ public class Player {
     }
 
     public void recordGame (int a, int b, int c, int d) {
-        this.pointsPerGame = a;
-        this.assistsPerGame = b;
-        this.reboundsPerGame = c;
-        this.turnoversPerGame  = d;
+        this.pointsPerGame = this.pointsPerGame + a;
+        this.assistsPerGame = this.assistsPerGame + b;
+        this.reboundsPerGame = this.reboundsPerGame + c;
+        this.turnoversPerGame  = this.turnoversPerGame + d;
         games = game + games;
-        
-
-        pointsPerGameAverage = pointsPerGameAverage + pointsPerGame;
-        assistsPerGameAverage = assistsPerGameAverage + assistsPerGame;
-        reboundsPerGameAverage = reboundsPerGameAverage + reboundsPerGame;
-        turnoversPerGameAverage =  turnoversPerGameAverage + turnoversPerGame;
     }
 
     public String PPG () {
-        double result = this.pointsPerGameAverage/games;
+        double result = this.pointsPerGame / games;
         return String.format("%.2f", result);
     }
 
     public double PPGRES () {
-        double result = this.pointsPerGameAverage / games;
+        double result = this.pointsPerGame / games;
         return result;
     }
 
     public String APG () {
-        double result = this.assistsPerGameAverage / games;
+        double result = this.assistsPerGame / games;
         return String.format("%.2f", result);
     }
 
     public double APGRES () {
-        double result = this.assistsPerGameAverage / games;
+        double result = this.assistsPerGame / games;
         return result;
     }
  
     public String RPG () {
         
-        double result = this.reboundsPerGameAverage / games;
+        double result = this.reboundsPerGame / games;
         return String.format("%.2f", result);
     }
     
     public double RPGRES () {
-        double result = this.reboundsPerGameAverage / games;
+        double result = this.reboundsPerGame / games;
         return result;
     }
 
     public String TPG () {
        
-        double result = this.turnoversPerGameAverage / games;
+        double result = this.turnoversPerGame / games;
         return String.format("%.2f", result);
     }
 
     public double TPGRES () {
-        double result = this.turnoversPerGameAverage / games;
+        double result = this.turnoversPerGame / games;
         return result;
     }    
 
