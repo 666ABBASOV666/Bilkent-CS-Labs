@@ -10,18 +10,21 @@ public class Player {
     public String transfer;
     private boolean isActive;
     private boolean isRight = true;
+
     
     //Part2
     public int recordGame;
     public int pointsPerGame;
-    public int pointsPerGameAverage;
+    public int pointsPerGameAverage = 0;
     public int assistsPerGame;
     public int assistsPerGameAverage;
     public int reboundsPerGame;
     public int reboundsPerGameAverage;
     public int turnoversPerGame;
     public int turnoversPerGameAverage;
-    public static int gamesPlayed = 0;
+    public static double game = 1;
+    public double games = 0;
+    public boolean isMoreE;
 
     public Player (String a, String b, String c, int d) {
         this.name = a;
@@ -35,8 +38,8 @@ public class Player {
     
     public void setName (String aName) {
         this.name = aName;
-    }   
-
+    }
+    
     public void setPosition (String aPosition) {
         if (aPosition == "SF") {
             this.position = aPosition;
@@ -72,12 +75,13 @@ public class Player {
     }
 
     public void retire () {
-        isActive = false; 
+        isActive = false;
+        count--; 
     }
 
     public boolean isBeforeThan (Player player3) {
-         int result = this.name.compareTo(name);
-        if (result>0) {
+         int result = this.name.compareTo(player3.name);
+        if (result < 0) {
             isRight = true;
         }
         else {
@@ -91,7 +95,8 @@ public class Player {
         this.assistsPerGame = b;
         this.reboundsPerGame = c;
         this.turnoversPerGame  = d;
-        gamesPlayed++;
+        games = game + games;
+        
 
         pointsPerGameAverage = pointsPerGameAverage + pointsPerGame;
         assistsPerGameAverage = assistsPerGameAverage + assistsPerGame;
@@ -99,26 +104,55 @@ public class Player {
         turnoversPerGameAverage =  turnoversPerGameAverage + turnoversPerGame;
     }
 
-    public double PPG () {
-        return pointsPerGameAverage / 6;
+    public String PPG () {
+        double result = this.pointsPerGameAverage/games;
+        return String.format("%.2f", result);
     }
 
-    public double APG () {
-        return assistsPerGameAverage / gamesPlayed;
+    public double PPGRES () {
+        double result = this.pointsPerGameAverage / games;
+        return result;
+    }
+
+    public String APG () {
+        double result = this.assistsPerGameAverage / games;
+        return String.format("%.2f", result);
+    }
+
+    public double APGRES () {
+        double result = this.assistsPerGameAverage / games;
+        return result;
     }
  
-    public double RPG () {
-        return reboundsPerGameAverage / gamesPlayed;
+    public String RPG () {
+        
+        double result = this.reboundsPerGameAverage / games;
+        return String.format("%.2f", result);
+    }
+    
+    public double RPGRES () {
+        double result = this.reboundsPerGameAverage / games;
+        return result;
     }
 
-    public double TPG () {
-        return turnoversPerGameAverage / gamesPlayed;
+    public String TPG () {
+       
+        double result = this.turnoversPerGameAverage / games;
+        return String.format("%.2f", result);
     }
-    public double Efficiency () {
-        return pointsPerGameAverage + 
-        (0.7 * assistsPerGameAverage) + 
-        (0.7 * reboundsPerGameAverage) -
-        (0.9 * turnoversPerGameAverage);
+
+    public double TPGRES () {
+        double result = this.turnoversPerGameAverage / games;
+        return result;
+    }    
+
+    public double getEfficiency () {
+        return  PPGRES() + (0.7 * APGRES()) + (0.7 * RPGRES()) - (0.9 * TPGRES());
+    }
+
+    public String getEff () {
+        double result = this.PPGRES() + (0.7 * this.APGRES()) + (0.7 * this.RPGRES()) - (0.9 * this.TPGRES());
+        return String.format("%.2f", result);
     }
 
     public String toString () {
@@ -134,8 +168,22 @@ public class Player {
         "\n" + "APG: " + APG() +
         "\n" + "RPG: " + RPG() +
         "\n" + "TPG: " + TPG() +
-        "\n" + "Efficiency: " + Efficiency() + "\n";
+        "\n" + "Efficiency: " + getEff() + 
+        "\n"+
+        "\n" + "Retirement Status: Active among " + count + " active player(s)" +
+        "\n";
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public boolean isMoreEfficient (Player player3) {
+        if (this.getEfficiency() > player3.getEfficiency()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
