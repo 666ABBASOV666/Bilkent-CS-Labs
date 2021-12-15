@@ -1,4 +1,4 @@
-public class Song {
+public class Song implements Comparable<Song> {
 
     private String title;
     private String artist;
@@ -37,6 +37,23 @@ public class Song {
         return timesPlayed;
     }
 
+    
+    int compare = 0;
+    public int compareTo(Song song) {
+        if (this.duration > song.getDuration()) {
+            compare = 1;
+        }
+        else if (this.duration < song.getDuration()) {
+            compare = -1;
+        }
+        else if (this.duration == song.getDuration()) {
+            compare = 0;
+        }
+        return compare;
+    }
+
+
+
     //Setters
 
     public void setTitle (String a) {
@@ -68,6 +85,8 @@ public class Song {
         "\n" + "Times Played: " + timesPlayed +
         "\n";
     }
+
+    
 
 
 

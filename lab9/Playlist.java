@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Playlist {
 
@@ -7,8 +8,6 @@ public class Playlist {
     private String genre;
     private ArrayList<Song> songs;
     private Song song;
-    private boolean songExists = true;
-    private String addSong;
 
     public Playlist (String sName, String sCreator, String sGenre, ArrayList<Song> sSongs) {
         
@@ -21,9 +20,6 @@ public class Playlist {
 
     //getters
 
-    public Playlist() {
-
-    }
 
 
     public String getName () {
@@ -40,9 +36,7 @@ public class Playlist {
 
     public void getSongs () {
         System.out.println(songs);
-    }
-
-    //setters
+    } 
 
     public void setName (String a) {
         this.name = a;
@@ -60,12 +54,18 @@ public class Playlist {
         this.songs = songs;
     }
 
-    public void addSong (ArrayList<Song> songs) {
-        if (Songs.contains(songs)) {
+    public boolean songExists (Song song) {
+        for(int i = 0; i < songs.size(); i++) {
+        if (songs.get(i).equals(song)) {
+            return true;
+        } 
+    }
+    return false;
+}
 
-        }
-        else {
-            this.songs = songs;
+    public void addSong (Song song) {
+        if (songExists(song) == false) {
+            songs.add(song);
         }
     }
 
@@ -73,8 +73,12 @@ public class Playlist {
         songs.remove(a);
     }
 
-    public void sortByDurationDesc () {
+    public void removeSong (int index) {
+        songs.remove(songs.get(index));
+    }
 
+    public void sortByDurationDesc () {
+        Collections.sort(songs);
     }
 
     public String toString () {
