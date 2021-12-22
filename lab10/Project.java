@@ -28,6 +28,7 @@ public class Project {
     }
 
     public void calcModifiedScores() {
+
         int x = rawScores[0];
         modifiedScores[0] = x;
 
@@ -72,19 +73,58 @@ public class Project {
     }
 
     public void calcSegment() {
-        if(finalScore == 100) {segment = "A+";}
-        else if(finalScore >= 90) {segment = "A";}
-        else if(finalScore >= 75) {segment = "B";}
-        else if(finalScore >= 60) {segment = "C";}
-        else if(finalScore >= 40) {segment = "D";}
+        if(finalScore == 100) {
+            segment = "A+";
+        }
+        else if(finalScore >= 90) {
+            segment = "A";
+        }
+        else if(finalScore >= 75) {
+            segment = "B";
+        }
+        else if(finalScore >= 60) {
+            segment = "C";
+        }
+        else if(finalScore >= 40) {
+            segment = "D";
+        }
     }
 
     public void calcCredibility() {
-        if(segment == "A+") {credibility = "Perfect";}
-        else if(segment == "A") {credibility = "Very Good";}
-        else if(segment == "B") {credibility = "Good";}
-        else if(segment == "C") {credibility = "Considerate";}
-        else if(segment == "D") {credibility = "Not appropriate";}
+        if(segment == "A+") {
+            credibility = "Perfect";
+        }
+        else if(segment == "A") {
+            credibility = "Very Good";
+        }
+        else if(segment == "B") {
+            credibility = "Good";
+        }
+        else if(segment == "C") {
+            credibility = "Considerate";
+        }
+        else if(segment == "D") {
+            credibility = "Not appropriate";
+        }
+    }
+
+    public String toString (int a) {
+
+        if (a == INITIAL) {
+            return String.format("%s", "hh");
+        }
+
+        else if (a == MODIFIED) {
+            return String.format("%s", "hh");
+        }
+
+        else if (a == FINAL) {
+            return String.format("%s", "hh");
+        }
+        
+        else {
+            return "";
+        }
     }
 
 }
